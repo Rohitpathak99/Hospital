@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Typography & Background */
+body {
+  @apply bg-gray-50 text-gray-800;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Smooth scroll for navbar navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Hero Fade Up Animation ===== */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 1.2s ease-out forwards;
+}
+
+/* ===== Emergency Button Soft Bounce ===== */
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounceSlow 2s ease-in-out infinite;
+}
+
+.nav-link {
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #1d4ed8; /* blue-700 */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Infinite horizontal scrolling animation */
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.33%);
+  }
+}
+
+.animate-scroll-x {
+  animation: scroll-x 15s linear infinite;
+}
